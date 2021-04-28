@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import Data from './data.json';
 import Language from "../config/language";
 import Store from '../redux/store';
+import Autocomplete from "react-google-autocomplete";
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 
 const { Content } = Layout;
@@ -18,6 +20,13 @@ function Home() {
                 <Breadcrumb.Item>{Language[Store.getState().languages.language].home}</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background p-4">
+                <Autocomplete
+                    apiKey="AIzaSyDY6T7UDfx5E_BYUYDmLnfbrFLLCit-yg4"
+                    onPlaceSelected={(place) => console.log(place)}
+                />
+                <GooglePlacesAutocomplete
+                apiKey="AIzaSyDY6T7UDfx5E_BYUYDmLnfbrFLLCit-yg4"
+                />
                 <div className="site-card-wrapper">
                 <Row gutter={26}>
                     {
